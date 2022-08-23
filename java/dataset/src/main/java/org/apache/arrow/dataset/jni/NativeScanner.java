@@ -108,6 +108,7 @@ public class NativeScanner implements Scanner {
         try {
           return peek;
         } finally {
+          peek.close();
           peek = null;
         }
       }
