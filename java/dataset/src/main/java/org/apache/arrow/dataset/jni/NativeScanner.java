@@ -108,7 +108,6 @@ public class NativeScanner implements Scanner {
         try {
           return peek;
         } finally {
-          peek.close();
           peek = null;
         }
       }
@@ -153,6 +152,7 @@ public class NativeScanner implements Scanner {
         return;
       }
       closed = true;
+      schema = null;
       JniWrapper.get().closeScanner(scannerId);
     } finally {
       writeLock.unlock();
