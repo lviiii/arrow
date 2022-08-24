@@ -632,7 +632,8 @@ Java_org_apache_arrow_dataset_jni_JniWrapper_getSchemaFromScanner(JNIEnv* env, j
           ->options()
           ->projected_schema;
   jbyteArray out = JniGetOrThrow(ToSchemaByteArray(env, schema));
-  std::cout << "arrowwwww  schema: " << sizeof(schema) << ", bytes:" << sizeof(out) << std::endl;
+  schema = nullptr;
+  std::cout << "arrowwwww  schema: "  << ", bytes:" << sizeof(out) << std::endl;
   return out;
   JNI_METHOD_END(nullptr)
 }
